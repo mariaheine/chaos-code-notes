@@ -26,6 +26,83 @@
 - `find path/to/directory -type f | fzf` start fzf on all files in the specified directory
 - `ps aux | fzf`
 
+### tmux
+
+> https://linuxize.com/post/getting-started-with-tmux/
+
+- `tmux`
+	- open new session
+	- but instead of that you should name sessions:
+	- 🌟 `tmux new -s session_name`
+		- then to reconnect:
+		- `tmux attach-session -t session_name`
+- `ctrl+b ?`
+	- get list of all key bindings
+- `ctrl+b t`
+	- return to your normal shell
+	- *without killing session*
+- `tmux ls`
+	- will list active tmux sessions
+	- `tmux attach`
+		- will attach to the last active session
+	- `tmux attach-session -t 2`
+		- will attach to the session 
+- panes
+	- `ctrl+b %` 
+		- split horizontally
+	- `ctrl+b "`
+		- split vertiacally
+	- `ctrl+b arrow_keys`
+		- navigate panes
+	- `ctrl+b ;`
+		- toggle between two panes
+	- `cb z`
+		- toggle pane zoom
+	- `cb x`
+		- close current pane
+
+# terminal
+
+## alacritty
+
+- ***config***
+	- https://alacritty.org/config-alacritty.html
+	- likely here: `~/.config/alacritty/alacritty.toml`
+
+
+## konsole
+
+- `CTRL+SHIFT+M`
+	- toggle menu bar
+	- useful since otherwise you may want to hide it to have a neat fullscreen terminal
+
+>  my shortcuts
+- `ctrl+d`
+	- quit session (close view)
+- tabs
+	- `ctrl+shift+t`
+		- new tab
+	- `alt+1/2/3/4/5`
+		- switch between tabs
+- splitting
+	- `ctrl+(`
+		- vertical split
+	- `ctrl+)`
+		- horizontal split
+- font
+	- `ctrl++` enlarge font
+	- `ctrl+-` shrink font
+
+## zsh
+
+- `bindkey`
+	- will list your key bindings in zsh
+	- `bindkey '^K'`
+		- will show you what is bound to `CTRL+K`
+	- `bindkey -r '^K`
+		- will remove the keybinding at `CTRL+K`
+		- *you might need that sometimes when things collide with like your Konsole shortcuts or smth*
+
 # cute
 
 ### bat
@@ -134,31 +211,6 @@
 - had to add `--daemon` to it's `.desktop` definition so that it does not start with its window open on launch
 - Problem: taskbar shows every time i do the `alt+.` shortcut
 	- Solution: go to the taskbar settings and in its visibility settings set it to auto hide and allow other programs hide it
-# terminal
-
-## alacritty
-
-- ***config***
-	- https://alacritty.org/config-alacritty.html
-	- likely here: `~/.config/alacritty/alacritty.toml`
-
-
-## konsole
-
-- `CTRL+SHIFT+M`
-	- toggle menu bar
-	- useful since otherwise you may want to hide it to have a neat fullscreen terminal
-
-## zsh
-
-- `bindkey`
-	- will list your key bindings in zsh
-	- `bindkey '^K'`
-		- will show you what is bound to `CTRL+K`
-	- `bindkey -r '^K`
-		- will remove the keybinding at `CTRL+K`
-		- *you might need that sometimes when things collide with like your Konsole shortcuts or smth*
-
 # window manager
 
 ## i3

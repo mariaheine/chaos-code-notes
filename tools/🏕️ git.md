@@ -16,7 +16,7 @@
 
 # git commands
 
-## authentication
+# authentication
 
 - `git config --global --list | grep credential`
 	- if credential helper isnt set to `store` run:
@@ -41,7 +41,7 @@
 - *if things stopped working again it is likely the token expired*
 	- repeat the steps
 
-## curious cat
+# curious cat
 
 ### status
 
@@ -107,7 +107,7 @@
 	- i couldn't find the commit where i deleted old zenfulcrum browser proxy, but i knew its more or less location in the project
 	- `git log -S'IBrowser' -- sanctuary/Assets/Fillory/scripts/common/proxies`
 
-##  stage actress
+#  stage actress
 
 - `q` 
 	- quit any git active thingy like an endless log or diff
@@ -254,7 +254,7 @@ git push -u origin main
 	- thus better make an alias:
 	- `git config --global alias.unstage 'restore --staged --'`
 
-## branching
+# branching
 
 ### branch & switch
 
@@ -278,7 +278,7 @@ git push -u origin main
 3. `git merge <source_branch>` 
 	- to merge the changes
 
-## among others
+# among others
 
 ### pull
 > The merge/rebase of pull always targets your current HEAD.
@@ -313,7 +313,7 @@ git push -u origin main
 
 ### set-upstage
 
-## imtermediate
+# intermediate
 
 ### `git submodule`
 
@@ -540,6 +540,43 @@ find . -type f \( -name "*.prefab" -o -name "*.unity" -o -name "*.controller" -o
 	- `file Runtime/rzeka/interface/IRzeka.cs` will no longer find CRLF line endings
 		- `Runtime/rzeka/interface/IRzeka.cs: C++ source, ASCII text`
 	- you will have a lot of files to commit
+
+### --bare
+
+> Useful for tracking files like `.zshrc` etc.
+> https://www.atlassian.com/git/tutorials/dotfiles
+
+> Setting up
+```bash
+git init --bare $HOME/.dotfiles
+
+# it is useful to add that alias to your .zshrc
+# 
+alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+# this will prevent all $HOME files showing as untracked
+config config --local status.showUntrackedFiles no
+```
+
+> Restoring
+```bash
+git clone --bare <git-repo-url> $HOME/.cfg
+
+# renew the alias
+alias dot='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+# assuming above alias
+dot checkout
+
+# this might throw errors like
+error: The following untracked working tree files would be overwritten by checkout:
+    .bashrc
+    .gitignore
+Please move or remove them before you can switch branches.
+Aborting
+
+# just remove or backup conflicting files and run dot checkout again
+```
 
 # 🤷🏻‍♀️🪵 git config
 
